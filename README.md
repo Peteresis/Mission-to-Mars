@@ -5,9 +5,11 @@ Create a web application that scrapes data from various websites and displays it
  
 ## :two: Procedure
 
+The procedure to create a Flask web application that displays scraped information in a new webpage has several steps.
+
 ### Step 1: Scrape the web sources and save the data into a dictionary
 
-The procedure to create a Flask web application that displays scraped information in a new webpage has several steps.  First, it is neccesary to develop the scraping code.  In our case, the scraping code was developed and tested in a Jupyter notebook (`Mission_to_Mars_Challenge.ipynb`) and then exported to a python file (`Mission_to_Mars_Challenge.py`). 
+First, it is neccesary to develop the scraping code.  In our case, the scraping code was developed and tested in a Jupyter notebook (`Mission_to_Mars_Challenge.ipynb`) and then exported to a python file (`Mission_to_Mars_Challenge.py`). 
 
 The code connects to the `chromedriver` application which opens an instance of a browser window and navigates to the pages that are going to be scraped. The first page visited was [Mars Planet Science](https://redplanetscience.com/), a NASA Mars News website.  The scraper retrieved the most recent article's title and intro text (or lede).  The results were saved in variables with the aid of `BeautifulSoup`, an HTML parser application.
 
