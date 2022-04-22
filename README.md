@@ -3,4 +3,4 @@ Create a web application that scrapes data from various websites and displays it
  
 # Procedure
 
-![Image]('https://github.com/Peteresis/Mission-to-Mars/blob/571a46ebf880b5984b370094aa900a8401705fc9/resources/data-10-5-3-1-flowchart.png')
+![Image]('https://github.com/Peteresis/Mission-to-Mars/blob/0cd89fa0e45f3dc4aec9b541dae1a6da6cfb7073/resources/data-10-5-3-1-flowchart.png')
