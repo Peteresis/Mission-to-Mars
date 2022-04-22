@@ -5,29 +5,42 @@ Create a web application that scrapes data from various websites and displays it
  
 ## :two: Procedure
 
+### Step 1: Scrape the web sources and save the data into a dictionary
+
 The procedure to create a Flask web application that displays scraped information in a new webpage has several steps.  First, it is neccesary to develop the scraping code.  In our case, the scraping code was developed and tested in a Jupyter notebook (`Mission_to_Mars_Challenge.ipynb`) and then exported to a python file (`Mission_to_Mars_Challenge.py`). 
 
 The code connects to the `chromedriver` application which opens an instance of a browser window and navigates to the pages that are going to be scraped. The first page visited was [Mars Planet Science](https://redplanetscience.com/), a NASA Mars News website.  The scraper retrieved the most recent article's title and intro text (or lede).  The results were saved in variables with the aid of `BeautifulSoup`, an HTML parser application.
 
 The following page visited was the [Space Images from Mars](https://spaceimages-mars.com), a site operated by the Jet Propulsion Laboratory.  The objective of visiting this site was to get the full-sized featured image of the day. The scraper clicked on the image button and parsed the html code of  the page to retrieve the image url.
 
-It is worth noting that any scraping activity could throw errors if the elements of a page being scraped are not present because they have not had time to be loaded.  The internet speed connection can change because limitations of the internet connection being used, or the response time of the server, etc.  In order to avoid these errors it is advisable to add a line to our code that pauses for a few seconds before attempting to scrape any page.  This 'trick' avoids getting errors during code execution    and After visiting the first page, I needed to visit two more links, so I used browser.click link by partial text() and time.sleep() to avoid errors. I then used soup.find all() and. a[‘href'] to get the relative image path, which I combined with the main URL.
+:warning: It is worth noting that any scraping activity could throw errors if the elements of a page being scraped are not present because they have not had time to be loaded.  The internet speed can change because limitations of the internet connection being used, or the response time of the server, etc.  In order to avoid these errors it is advisable to add a line to our code that pauses for a few seconds before attempting to scrape any page.  This 'trick' avoids getting errors during code execution.  In the code written there are several lines that pause for 3 seconds before attemping to do the scrape.
+
+The next step for the scraper was to visit the site [Mars Facts](https://galaxyfacts-mars.com/) to collect a table with general data about the red planet.  This table was later loaded into a pandas DataFrame that compares the information of Mars with that of the Earth.  Then the DataFrame was converted into HTML code using the `.to_html()` pandas function.
+
+The final step in the scraping spree was to visit the [Planetary Data Science](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars) of the US Geological Survey.  The intention of visiting this page was to collect the URLs of high resolution images of the different hemispheres of Mars and their titles.  This information was then added to a dictionary, as shown below:
+```
+[{'img_url': 'https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg',
+  'title': 'Cerberus Hemisphere Enhanced'},
+ {'img_url': 'https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg',
+  'title': 'Schiaparelli Hemisphere Enhanced'},
+ {'img_url': 'https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg',
+  'title': 'Syrtis Major Hemisphere Enhanced'},
+ {'img_url': 'https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg',
+  'title': 'Valles Marineris Hemisphere Enhanced'}]
+```
+The code used to scrape the different sites mentioned can be found in the Git Hub repository [Mission-to-Mars/Mission_to_Mars_Challenge.py](https://github.com/Peteresis/Mission-to-Mars/blob/801af5ec29a5bcab93b0667887f35f6f331d8c89/Mission_to_Mars_Challenge.py) 
+
+### Step 2: Use Flask to create a web application
+
+Flask was used in a separate file, [app.py](https://github.com/Peteresis/Mission-to-Mars/blob/3d1354fe3ba6bbb626275bce9c3559cd342c49d8/app.py), to trigger the scrape function, update the Mongo database with the results, and then return that record of data from the database and onto a webpage.
+
+The process starts opening a Flask instance, and then using PyMongo to connect to the MongoDB server. I used the /scrape route with this connection to run the scrape function from the imported scrape mars.py file. I then used update and upsert=True to update the Mongo database with the new collection from the scrape. This route's endpoint redirects to the home route. The home route searches the Mongo database for one data record and then renders the index.html template with that record.
+
+The /scrape route was linked to a button in index.html, which a user could click to start the scrape. The remaining HTML file was formatted with Bootstrap to display the scrape results.
 
 
 
-Third, I would grab the latest tweet from the Mars Weather Twitter Account. Like the first page, this was done by parsing the HTML to find the required element and then grabbing the text from it.
 
-
-
-Then I scraped Mars facts from Space Facts. Rather than BeautifulSoup, I used Pandas to scrape the data. Pd.read html() scraped for tables and returned the second table with the data I needed. Renaming columns and setting indexes before converting df.to html ().
-
-
-
-The USGS Astrogeology page also has images and names of all four hemispheres of Mars. I found the hemisphere titles using BeautifulSoup and saved them in a list called hemi names. Then I searched for all thumbnail links in the hemispheres and iterated through the results, checking if the thumbnail element contained an image. A list (thumbnail links) outside the loop was appended with the full image URL if true. To get the full-sized hemisphere images, I searched for all img elements with a wide-image class in thumbnail links. The results were used to retrieve the hemispheres' full image path, which was stored in full imgs. Iterated through the zipped object, appending the hemisphere title to an empty dictionary as a key and the image URL as the value, then appending that dictionary to an empty list.
-
-
-
-It was then copied from the notebook to a Python file and used to create a scraping function. The scraping results were then stored as a dictionary and returned at the function's end.
 
 
 
