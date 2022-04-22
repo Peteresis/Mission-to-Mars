@@ -36,10 +36,17 @@ The code used to scrape the different sites mentioned can be found in the Git Hu
 
 Flask was used in a separate file, [app.py](https://github.com/Peteresis/Mission-to-Mars/blob/3d1354fe3ba6bbb626275bce9c3559cd342c49d8/app.py), to trigger the scrape function, update the Mongo database with the results, and then return that record of data from the database and onto a webpage.
 
-The process starts opening a Flask instance, and then using PyMongo to connect to the MongoDB server. I used the /scrape route with this connection to run the scrape function from the imported scrape mars.py file. I then used update and upsert=True to update the Mongo database with the new collection from the scrape. This route's endpoint redirects to the home route. The home route searches the Mongo database for one data record and then renders the index.html template with that record.
+The process starts opening a Flask instance, and then using PyMongo to connect to the MongoDB server. The final part of the code creates the 'routes' that will be part of the Flask application.  
 
-The /scrape route was linked to a button in index.html, which a user could click to start the scrape. The remaining HTML file was formatted with Bootstrap to display the scrape results.
+The `app.py` code is connected to the scraoer using the /scrape route. The data scraped is saved into a Mongo database using `upsert=True` to avoid duplicating or repeating scraped information to be saved into the database. This route's endpoint redirects to the home route. The home route searches the Mongo database for one data record and then renders the index.html template with that record.
 
+The /scrape route was linked to a button in index.html, which a user could click to start the scrape.
+
+### Step 3: Use an HTML file and Bootstrap to display the scrape results
+
+The [HTML Code](https://github.com/Peteresis/Mission-to-Mars/blob/c048ea0372162cec77c6b0dd5cfe55d94ff0ec5e/index.html) is saved into a file called `index.html`, this file needs to be run in the first place, then the user needs to click the `Scrape New Data` button to begin the process of connecting to the `app.py` file which in turn connects to the `Mission_to_Mars_Challenge.py` file to do the scraping.  
+
+So, even though we have described the process as `Mission_to_Mars_Challenge.py` ➡️ `app.py` ➡️ `index.html`, for a user the process occurs in reverse.  This is, `index.html' ➡️ `app.py` ➡️ `Mission_to_Mars_Challenge.py`
 
 
 
