@@ -5,9 +5,13 @@ Create a web application that scrapes data from various websites and displays it
  
 ## :two: Procedure
 
-The procedure to create a Flask web application that displays scraped information in a new webpage has several steps.  First, it is neccesary to develop the scraping code.  In our case, the scraping code was developed and tested in a Jupyter notebook (`and then exported to  to test the code. I connected to the chromedriver and set up my browser to open each webpage I needed to scrape. I first scraped the NASA Mars News website for the most recent article's title and text, storing the results in variables. To do this, I used BeautifulSoup to parse the HTML and search for the relevant elements and classes using soup.find all (). In order to get the text of the first result, I indexed it.
+The procedure to create a Flask web application that displays scraped information in a new webpage has several steps.  First, it is neccesary to develop the scraping code.  In our case, the scraping code was developed and tested in a Jupyter notebook (`Mission_to_Mars_Challenge.ipynb`) and then exported to a python file (`Mission_to_Mars_Challenge.py`). 
 
-This was the JPL Mars page, where I could get the full-sized featured image. After visiting the first page, I needed to visit two more links, so I used browser.click link by partial text() and time.sleep() to avoid errors. I then used soup.find all() and. a[‘href'] to get the relative image path, which I combined with the main URL.
+The code connects to the `chromedriver` application which opens an instance of a browser window and navigates to the pages that are going to be scraped. The first page visited was [Mars Planet Science](https://redplanetscience.com/), a NASA Mars News website.  The scraper retrieved the most recent article's title and intro text (or lede).  The results were saved in variables with the aid of `BeautifulSoup`, an HTML parser application.
+
+The following page visited was the [Space Images from Mars](https://spaceimages-mars.com), a site operated by the Jet Propulsion Laboratory.  The objective of visiting this site was to get the full-sized featured image of the day. The scraper clicked on the image button and parsed the html code of  the page to retrieve the image url.
+
+It is worth noting that any scraping activity could throw errors if the elements of a page being scraped are not present because they have not had time to be loaded.  The internet speed connection can change because limitations of the internet connection being used, or the response time of the server, etc.  In order to avoid these errors it is advisable to add a line to our code that pauses for a few seconds before attempting to scrape any page.  This 'trick' avoids getting errors during code execution    and After visiting the first page, I needed to visit two more links, so I used browser.click link by partial text() and time.sleep() to avoid errors. I then used soup.find all() and. a[‘href'] to get the relative image path, which I combined with the main URL.
 
 
 
