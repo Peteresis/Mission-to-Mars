@@ -65,7 +65,7 @@ A brief description of what the HTML code does is as follows:
 
 
 ### Image 1: Screenshot of the `measurement` table without any filters
-<img src="https://github.com/Peteresis/Mission-to-Mars/blob/21b423b93bb124731b2d458dca3d4d55da9d589e/resources/data-10-5-3-1-flowchart.png" width=50% height=50%>
+<img src="https://github.com/Peteresis/Mission-to-Mars/blob/2b4ac7f7776d76395e123f8ebcbb3e11eb4eafca/resources/data-10-5-3-1-flowchart.png" width=50% height=50%>
 
 
 
