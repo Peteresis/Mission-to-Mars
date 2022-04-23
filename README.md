@@ -48,6 +48,10 @@ The [HTML Code](https://github.com/Peteresis/Mission-to-Mars/blob/c048ea0372162c
 
 So, even though we have described the process as `Mission_to_Mars_Challenge.py` ▶️ `app.py` ▶️ `index.html`, for a user the process occurs in reverse.  This is, `index.html` ▶️ `app.py` ▶️ `Mission_to_Mars_Challenge.py`.
 
+#### Image 1: Process of creating a Flask App site
+<img src="https://github.com/Peteresis/Mission-to-Mars/blob/2b4ac7f7776d76395e123f8ebcbb3e11eb4eafca/resources/data-10-5-3-1-flowchart.png" width=50% height=50%>
+
+
 A brief description of what the HTML code does is as follows:
 
 - There is a `<head>` section that displays the title of the page.
@@ -56,23 +60,17 @@ A brief description of what the HTML code does is as follows:
 - There is a section to present Mars News.
 - There is another section to display the Featured Image and facts table.
 - The code also includes a section for error handling.
-- Finally, there is a section to show the images of the different hemisperes fo mars and their title caption. 
+- Finally, there is a section to show the images of the different hemisperes of mars and their title caption. 
  
+## :three: Final Result.  A responsive webpage.
 
+This is how the wepage looks in desktop mode
+#### Image 2: HTML rendering in desktop mode
+<img src="https://github.com/Peteresis/Mission-to-Mars/blob/13a8f2be5bdc0e1699ea8d2062ce9d7292c987cf/resources/Desktop.png" width=50% height=50%>
 
-
-
-
-
-### Image 1: Screenshot of the `measurement` table without any filters
-<img src="https://github.com/Peteresis/Mission-to-Mars/blob/2b4ac7f7776d76395e123f8ebcbb3e11eb4eafca/resources/data-10-5-3-1-flowchart.png" width=50% height=50%>
-
-
-
-
-
-
-
+And this is how it looks in mobile mode.  This is a partial view because the page is too long to display completely here.
+#### Image 3: HTML rendering in mobile mode
+<img src="https://github.com/Peteresis/Mission-to-Mars/blob/13a8f2be5bdc0e1699ea8d2062ce9d7292c987cf/resources/Mobile.png" width=50% height=50%>
 
 ## References
 **Module 10: Web Scraping to Extract Online Data**, https://courses.bootcampspot.com/courses/1145/pages/10-dot-0-1-web-scraping-to-extract-online-data, :copyright: 2020-2021 Trilogy Education Services, Web 15 Apr 2022.
