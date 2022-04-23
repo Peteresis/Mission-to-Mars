@@ -46,7 +46,18 @@ The /scrape route was linked to a button in index.html, which a user could click
 
 The [HTML Code](https://github.com/Peteresis/Mission-to-Mars/blob/c048ea0372162cec77c6b0dd5cfe55d94ff0ec5e/index.html) is saved into a file called `index.html`, this file needs to be run in the first place, then the user needs to click the `Scrape New Data` button to begin the process of connecting to the `app.py` file which in turn connects to the `Mission_to_Mars_Challenge.py` file to do the scraping.  
 
-So, even though we have described the process as `Mission_to_Mars_Challenge.py` ➡️ `app.py` ➡️ `index.html`, for a user the process occurs in reverse.  This is, `index.html' ➡️ `app.py` ➡️ `Mission_to_Mars_Challenge.py`
+So, even though we have described the process as `Mission_to_Mars_Challenge.py` ▶️ `app.py` ▶️ `index.html`, for a user the process occurs in reverse.  This is, `index.html` ▶️ `app.py` ▶️ `Mission_to_Mars_Challenge.py`.
+
+A brief description of what the HTML code does is as follows:
+
+- There is a `<head>` section that displays the title of the page.
+- There is a `<body>` section that includes the rest of the parts of the page, as follows:
+- A `<div class="container">` that holds a `Jumbotron` header, part of the styles imported from Bootstrap.  This section also includes the `Scrape New Data` button.
+- There is a section to present Mars News.
+- There is another section to display the Featured Image and facts table.
+- The code also includes a section for error handling.
+- Finally, there is a section to show the images of the different hemisperes fo mars and their title caption. 
+ 
 
 
 
